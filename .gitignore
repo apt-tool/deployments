@@ -19,3 +19,10 @@
 
 # Go workspace file
 go.work
+
+.idea/
+.vscode/
+.DS_Store
+
+config.yaml
+scripts/
