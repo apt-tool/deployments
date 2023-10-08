@@ -230,6 +230,10 @@ spec:
       serviceAccountName: {{ include "ptaas.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.dashboard.podSecurityContext | nindent 8 }}
+      volumes:
+        - name: dashboard-config
+          configMap:
+            name: {{ include "ptaas.fullname" . }}-dashboard-configmap
       containers:
         - name: {{ .Chart.Name }}-dashboard
           securityContext:
@@ -250,6 +254,10 @@ spec:
               port: http
           resources:
             {{- toYaml .Values.dashboard.resources | nindent 12 }}
+          volumeMounts:
+            - mountPath: /usr/share/nginx/html/.env
+              name: dashboard-config
+              subPath: .env
       {{- with .Values.dashboard.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
