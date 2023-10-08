@@ -152,4 +152,6 @@ dashboard:
   nodeSelector: { }
   tolerations: [ ]
   affinity: { }
-  configs: { }
+  configs:
+    gateway: "http://localhost:9090"
+    version: "v0.4.0"
