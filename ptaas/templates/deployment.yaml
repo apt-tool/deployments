@@ -188,6 +188,15 @@ spec:
               port: http
           resources:
             {{- toYaml .Values.ftp.resources | nindent 12 }}
+          env:
+            - name: HTTP_PORT
+              value: {{ .Values.ftp.configs.port }}
+            - name: ACCESS_KEY
+              value: {{ .Values.ftp.configs.access }}
+            - name: PRIVATE_KEY
+              value: {{ .Values.ftp.configs.secret }}
+            - name: MINIO_CLUSTER
+              value: {{ .Values.ftp.configs.minio }}
       {{- with .Values.ftp.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

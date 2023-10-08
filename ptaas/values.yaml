@@ -113,7 +113,11 @@ ftp:
   nodeSelector: { }
   tolerations: [ ]
   affinity: { }
-  configs: { }
+  configs:
+    port: 9091
+    access: "access"
+    secret: "secret"
+    minio: "cluster"
 
 dashboard:
   replicaCount: 1
