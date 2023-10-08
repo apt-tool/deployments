@@ -16,7 +16,7 @@ base:
   securityContext: { }
   service:
     type: ClusterIP
-    port: 80
+    port: 9090
   ingress:
     enabled: false
     className: ""
@@ -55,7 +55,7 @@ gateway:
   securityContext: { }
   service:
     type: ClusterIP
-    port: 80
+    port: 8080
   ingress:
     enabled: false
     className: ""
@@ -94,7 +94,7 @@ ftp:
   securityContext: { }
   service:
     type: ClusterIP
-    port: 80
+    port: 9091
   ingress:
     enabled: false
     className: ""
@@ -157,5 +157,5 @@ dashboard:
   tolerations: [ ]
   affinity: { }
   configs:
-    gateway: "http://localhost:9090"
+    gateway: "http://localhost:8080"
     version: "v0.4.0"

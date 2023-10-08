@@ -40,15 +40,15 @@ spec:
           imagePullPolicy: {{ .Values.base.image.pullPolicy }}
           ports:
             - name: http
-              containerPort: 80
+              containerPort: 9090
               protocol: TCP
           livenessProbe:
             httpGet:
-              path: /
+              path: /health
               port: http
           readinessProbe:
             httpGet:
-              path: /
+              path: /health
               port: http
           resources:
             {{- toYaml .Values.base.resources | nindent 12 }}
@@ -110,15 +110,15 @@ spec:
           imagePullPolicy: {{ .Values.gateway.image.pullPolicy }}
           ports:
             - name: http
-              containerPort: 80
+              containerPort: 8080
               protocol: TCP
           livenessProbe:
             httpGet:
-              path: /
+              path: /health
               port: http
           readinessProbe:
             httpGet:
-              path: /
+              path: /health
               port: http
           resources:
             {{- toYaml .Values.gateway.resources | nindent 12 }}
@@ -176,15 +176,15 @@ spec:
           imagePullPolicy: {{ .Values.ftp.image.pullPolicy }}
           ports:
             - name: http
-              containerPort: 80
+              containerPort: 9091
               protocol: TCP
           livenessProbe:
             httpGet:
-              path: /
+              path: /health
               port: http
           readinessProbe:
             httpGet:
-              path: /
+              path: /health
               port: http
           resources:
             {{- toYaml .Values.ftp.resources | nindent 12 }}
