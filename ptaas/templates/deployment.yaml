@@ -168,6 +168,9 @@ spec:
       serviceAccountName: {{ include "ptaas.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.ftp.podSecurityContext | nindent 8 }}
+      volumes:
+        - name: data-dir
+          emptyDir: { }
       containers:
         - name: {{ .Chart.Name }}-ftp
           securityContext:
@@ -188,6 +191,9 @@ spec:
               port: http
           resources:
             {{- toYaml .Values.ftp.resources | nindent 12 }}
+          volumeMounts:
+            - mountPath: /app/data/docs
+              name: data-dir
           env:
             - name: HTTP_PORT
               value: {{ .Values.ftp.configs.port }}
