@@ -28,6 +28,10 @@ spec:
       serviceAccountName: {{ include "ptaas.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.base.podSecurityContext | nindent 8 }}
+      volumes:
+        - name: base-config
+          configMap:
+            name: {{ include "ptaas.fullname" . }}-base-configmap
       containers:
         - name: {{ .Chart.Name }}-base
           securityContext:
@@ -48,6 +52,10 @@ spec:
               port: http
           resources:
             {{- toYaml .Values.base.resources | nindent 12 }}
+          volumeMounts:
+            - mountPath: /app/scanner/config.yaml
+              name: base-config
+              subPath: config.yaml
       {{- with .Values.base.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
@@ -90,6 +98,10 @@ spec:
       serviceAccountName: {{ include "ptaas.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.gateway.podSecurityContext | nindent 8 }}
+      volumes:
+        - name: gateway-config
+          configMap:
+            name: {{ include "ptaas.fullname" . }}-gateway-configmap
       containers:
         - name: {{ .Chart.Name }}-gateway
           securityContext:
@@ -110,6 +122,10 @@ spec:
               port: http
           resources:
             {{- toYaml .Values.gateway.resources | nindent 12 }}
+          volumeMounts:
+            - mountPath: /app/config.yaml
+              name: gateway-config
+              subPath: config.yaml
       {{- with .Values.gateway.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
