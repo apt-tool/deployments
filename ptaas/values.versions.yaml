@@ -1,0 +1,15 @@
+base:
+  image:
+    tag: ""
+
+gateway:
+  image:
+    tag: ""
+
+ftp:
+  image:
+    tag: ""
+
+dashboard:
+  image:
+    tag: ""
