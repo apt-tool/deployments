@@ -7,22 +7,12 @@ base:
   imagePullSecrets: [ ]
   nameOverride: ""
   fullnameOverride: ""
-  serviceAccount:
-    create: false
-    annotations: { }
-    name: ""
   podAnnotations: { }
   podSecurityContext: { }
   securityContext: { }
   service:
     type: ClusterIP
     port: 9090
-  ingress:
-    enabled: false
-    className: ""
-    annotations: { }
-    hosts: [ ]
-    tls: [ ]
   resources:
     limits:
       cpu: 100m
@@ -30,8 +20,6 @@ base:
     requests:
       cpu: 100m
       memory: 128Mi
-  autoscaling:
-    enabled: false
   nodeSelector: { }
   tolerations: [ ]
   affinity: { }
@@ -46,22 +34,12 @@ gateway:
   imagePullSecrets: [ ]
   nameOverride: ""
   fullnameOverride: ""
-  serviceAccount:
-    create: false
-    annotations: { }
-    name: ""
   podAnnotations: { }
   podSecurityContext: { }
   securityContext: { }
   service:
     type: ClusterIP
     port: 8080
-  ingress:
-    enabled: false
-    className: ""
-    annotations: { }
-    hosts: [ ]
-    tls: [ ]
   resources:
     limits:
       cpu: 100m
@@ -69,8 +47,6 @@ gateway:
     requests:
       cpu: 100m
       memory: 128Mi
-  autoscaling:
-    enabled: false
   nodeSelector: { }
   tolerations: [ ]
   affinity: { }
@@ -85,22 +61,12 @@ ftp:
   imagePullSecrets: [ ]
   nameOverride: ""
   fullnameOverride: ""
-  serviceAccount:
-    create: false
-    annotations: { }
-    name: ""
   podAnnotations: { }
   podSecurityContext: { }
   securityContext: { }
   service:
     type: ClusterIP
     port: 9091
-  ingress:
-    enabled: false
-    className: ""
-    annotations: { }
-    hosts: [ ]
-    tls: [ ]
   resources:
     limits:
       cpu: 100m
@@ -108,8 +74,6 @@ ftp:
     requests:
       cpu: 100m
       memory: 128Mi
-  autoscaling:
-    enabled: false
   nodeSelector: { }
   tolerations: [ ]
   affinity: { }
@@ -128,22 +92,12 @@ dashboard:
   imagePullSecrets: [ ]
   nameOverride: ""
   fullnameOverride: ""
-  serviceAccount:
-    create: false
-    annotations: { }
-    name: ""
   podAnnotations: { }
   podSecurityContext: { }
   securityContext: { }
   service:
     type: ClusterIP
     port: 80
-  ingress:
-    enabled: false
-    className: ""
-    annotations: { }
-    hosts: [ ]
-    tls: [ ]
   resources:
     limits:
       cpu: 100m
@@ -151,8 +105,6 @@ dashboard:
     requests:
       cpu: 100m
       memory: 128Mi
-  autoscaling:
-    enabled: false
   nodeSelector: { }
   tolerations: [ ]
   affinity: { }
