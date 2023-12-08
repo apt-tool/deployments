@@ -1,15 +1,15 @@
 base:
   image:
-    tag: ""
+    tag: "base-v0.4.0"
 
 gateway:
   image:
-    tag: ""
+    tag: "gateway-v0.4.0"
 
 ftp:
   image:
-    tag: ""
+    tag: "ftp-v0.4.0"
 
 dashboard:
   image:
-    tag: ""
+    tag: "dash-v0.4.0"
