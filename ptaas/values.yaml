@@ -23,7 +23,42 @@ base:
   nodeSelector: { }
   tolerations: [ ]
   affinity: { }
-  configs: { }
+  configs:
+    core:
+      port: 9090
+      enable: true
+      workers: 1
+      secret: "secret"
+    mysql:
+      host: 'localhost'
+      port: 3306
+      user: root
+      pass: ''
+      database: 'apt'
+      migrate: false
+    migrate:
+      root: 'admin'
+      pass: '12345'
+      enable: true
+    ai:
+      enable: true
+      method: "svm"
+      "limit": 10
+      "factor": 7
+    scanner:
+      enable: true
+      defaults:
+        - "2fa"
+      command: "python3 scanner.py"
+      flags:
+        - "host"
+        - "endpoints"
+        - "type"
+        - "protocol"
+    ftp:
+      host: 'http://localhost:9091'
+      secret: 'secret'
+      access: 'access'
 
 gateway:
   replicaCount: 1
@@ -50,7 +85,26 @@ gateway:
   nodeSelector: { }
   tolerations: [ ]
   affinity: { }
-  configs: { }
+  configs:
+    http:
+      port: 8080
+      core: 'http://localhost:9090/api'
+      core_secret: 'secret'
+      dev_mode: true
+    jwt:
+      private_key: 'super'
+      expire_time: 180 # minute
+    mysql:
+      host: 'localhost'
+      port: 3306
+      user: root
+      pass: ''
+      database: 'apt'
+      migrate: false
+    ftp:
+      host: 'http://localhost:9091'
+      secret: 'secret'
+      access: 'access'
 
 ftp:
   replicaCount: 1
@@ -81,7 +135,7 @@ ftp:
     port: 9091
     access: "access"
     secret: "secret"
-    minio: "cluster"
+    minio: "minio.cluster.default.svc.local"
 
 dashboard:
   replicaCount: 1
@@ -110,4 +164,4 @@ dashboard:
   affinity: { }
   configs:
     gateway: "http://localhost:8080"
-    version: "v0.4.0"
+    version: "v0.5.0"
