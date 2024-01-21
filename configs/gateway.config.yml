@@ -1,19 +1,18 @@
 http:
   port: 8080
-  core: 'http://localhost:9090/api'
-  core_secret: 'secret'
-  dev_mode: true
+  core: "http://base-api-container:9090/api"
+  core_secret: "#wercV89Qwerc09"
+  dev_mode: false
 jwt:
-  private_key: 'super'
+  private_key: 'KeUy773WeLv9%22nmvpo01134u8523'
   expire_time: 180 # minute
 mysql:
-  host: 'localhost'
+  host: "mysql-container"
   port: 3306
   user: root
-  pass: 'Amir2222'
-  database: 'apt'
-  migrate: false
+  pass: "mauFJcuf5dhRMQrjj"
+  database: "ptaas"
 ftp:
-  host: 'http://localhost:9091'
-  secret: 'secret'
-  access: 'access'
+  host: "http://ftp-server:9091"
+  secret: "8bVc13329vn23"
+  access: "nnvXiu%2234nvoo3n1i98n3v"
