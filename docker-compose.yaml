@@ -1,0 +1,47 @@
+version: "3.9"
+services:
+  mysql: # mysql database
+    container_name: mysql-container
+    hostname: mysql-container
+    image: mysql:8.0
+    cap_add:
+      - SYS_NICE
+    restart: on-failure
+    environment:
+      - MYSQL_DATABASE=ads
+      - MYSQL_ROOT_PASSWORD=mauFJcuf5dhRMQrjj
+    ports:
+      - '3306:3306'
+    volumes:
+      - db:/var/lib/mysql
+  
+  base-api:
+    container_name: base-api-container
+    hostname: base-api-container
+    image: amirhossein21/ptaas-tool:base-api-v0.5.3
+  
+  gateway:
+    container_name: gateway-container
+    hostname: gateway-container
+    image: amirhossein21/ptaas-tool:base-v0.5.2
+    ports:
+      - "8080:8080"
+
+  ftp-server:
+    container_name: ftp-server-container
+    hostname: ftp-server-container
+    image: amirhossein21/ptaas-tool:ftp-v0.5.1
+
+  dashboard:
+    container_name: dashboard-container
+    hostname: dashboard-container
+    image: amirhossein21/ptaas-tool:dashboard-v0.5.1
+    environment:
+      - VITE_API_URL=http://gateway-container:8080
+      - VITE_VERSION=v0.5.1
+    ports:
+      - "80:80"
+
+volumes:
+  db:
+    driver: local

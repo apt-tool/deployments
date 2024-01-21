@@ -1,0 +1,35 @@
+core:
+  port: 9090
+  enable: true
+  workers: 1
+  secret: "secret"
+mysql:
+  host: 'localhost'
+  port: 3306
+  user: root
+  pass: 'Amir2222'
+  database: 'apt'
+  migrate: true
+ai:
+  enable: false
+  method: "random"
+  "limit": 10
+  "factor": 7
+scanner:
+  enable: false
+  defaults:
+    - "2fa"
+  command: "python3 scanner.py"
+  flags:
+    - "host"
+    - "endpoints"
+    - "type"
+    - "protocol"
+migrate:
+  root: 'admin'
+  pass: '12345'
+  enable: false
+ftp:
+  host: 'http://localhost:9091'
+  secret: 'secret'
+  access: 'access'
