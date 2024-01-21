@@ -2,13 +2,13 @@ core:
   port: 9090
   enable: true
   workers: 1
-  secret: "secret"
+  secret: "#wercV89Qwerc09"
 mysql:
-  host: 'localhost'
+  host: "mysql-container"
   port: 3306
   user: root
-  pass: 'Amir2222'
-  database: 'apt'
+  pass: "mauFJcuf5dhRMQrjj"
+  database: "ptaas"
   migrate: true
 ai:
   enable: false
@@ -26,10 +26,10 @@ scanner:
     - "type"
     - "protocol"
 migrate:
-  root: 'admin'
-  pass: '12345'
+  root: "admin"
+  pass: "12345"
   enable: false
 ftp:
-  host: 'http://localhost:9091'
-  secret: 'secret'
-  access: 'access'
+  host: "http://ftp-server:9091"
+  secret: "8bVc13329vn23"
+  access: "nnvXiu%2234nvoo3n1i98n3v"
