@@ -1,5 +1,7 @@
 # Deployments
 
-All Kubernetes manifestations to deploy ```PTaaS``` on your hosts. The following platforms
-are supported for ```PTaaS```. Image architecture is ```linux/amd64```. It also provides
-scripts to deploy ```PTaaS```, ```MySQL```, and ```MinIO``` using Helm Charts.
+In this repository we provide a ```docker-compose``` file in order to
+start the whole application with its components in ```docker```.
+
+Just use the ```./tearup.sh``` script to start the application on your local system
+and use ```./teardown.sh``` script to stop the application.
