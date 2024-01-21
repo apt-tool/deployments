@@ -50,7 +50,7 @@ services:
   ftp-server:
     container_name: ftp-server-container
     hostname: ftp-server-container
-    image: amirhossein21/ptaas-tool:ftp-v0.5.1
+    image: amirhossein21/ptaas-tool:ftp-v0.5.2
     volumes:
       - local_storage:/app/data/
     environment:
