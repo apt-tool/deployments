@@ -8,10 +8,10 @@ services:
       - SYS_NICE
     restart: on-failure
     environment:
-      - MYSQL_DATABASE=ads
+      - MYSQL_DATABASE=ptaas
       - MYSQL_ROOT_PASSWORD=mauFJcuf5dhRMQrjj
     ports:
-      - '3306:3306'
+      - "3306:3306"
     volumes:
       - db:/var/lib/mysql
     
@@ -33,11 +33,17 @@ services:
     container_name: base-api-container
     hostname: base-api-container
     image: amirhossein21/ptaas-tool:base-api-v0.5.3
+    volumes:
+      - ./configs/gateway.config.yaml:/app/config.yaml
+    ports:
+      - "9090:9090"
   
   gateway:
     container_name: gateway-container
     hostname: gateway-container
     image: amirhossein21/ptaas-tool:base-v0.5.2
+    volumes:
+      - ./configs/gateway.config.yaml:/app/config.yaml
     ports:
       - "8080:8080"
 
