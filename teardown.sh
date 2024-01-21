@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-helm uninstall ptaas
+docker compose down
